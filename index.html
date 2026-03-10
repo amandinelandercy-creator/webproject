@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Découvrir Bruxelles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header >
+        <h1>Découvrir Bruxelles</h1>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <img src="./images/bruxelles.avif" alt="Bruxelles" width="600">
+        <ul>
+            <li>Grand Place</li>
+            <li>Atomium</li>
+            <li>Parc du Centenaire</li>
+        </ul>
+        <form id="ajout-point-form">
+            <label for="nouveau-point">Ajouter un point intéressant :</label>
+            <input type="text" id="nouveau-point" name="nouveau-point" required>
+            <button type="submit">Ajouter</button>
+        </form>
+        <script>
+            const form = document.getElementById('ajout-point-form');
+            const ul = document.querySelector('main ul');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const input = document.getElementById('nouveau-point');
+                const value = input.value.trim();
+                if (value) {
+                    const li = document.createElement('li');
+                    li.textContent = value;
+                    ul.appendChild(li);
+                    input.value = '';
+                }
+            });
+        </script>
+    </main>
+    <footer>
+        <p>&copy; 2026 découvrir bruxelles</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
